@@ -36,6 +36,6 @@ resource "aws_instance" "two" {
     application = "swiggy"
   }
   root_block_device {
-    volume_size = 15
+    volume_size = 18
   }
 }
