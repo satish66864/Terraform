@@ -1,7 +1,14 @@
 provider "aws" {
   region     = "ap-south-1"
-  access_key = ""
-  secret_key = ""
+  access_key = "******************"
+  secret_key = "**********************"
+}
+
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "**********************"
+  secret_key = "**************************"
+  alias      = "america"
 }
 
 resource "aws_instance" "one" {
@@ -19,11 +26,6 @@ resource "aws_instance" "one" {
   }
 }
 
-provider "aws" {
-  region     = "us-east-1"
-  access_key = ""
-  secret_key = ""
-}
 
 resource "aws_instance" "two" {
   ami               = ""
@@ -38,4 +40,6 @@ resource "aws_instance" "two" {
   root_block_device {
     volume_size = 18
   }
+  provider = "america"
 }
+
